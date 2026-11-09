@@ -1,0 +1,17 @@
+ROUTE PH - HOW TO RUN
+
+1. Unzip this folder, then open it in VS Code (File > Open Folder).
+   The folder must contain:  RoutePHServer.java  and the  web  folder.
+2. Open the terminal (Ctrl + `) and type, one line at a time:
+
+     javac RoutePHServer.java
+     java RoutePHServer
+
+   (or:  javac --add-modules jdk.httpserver RoutePHServer.java
+         java --add-modules jdk.httpserver RoutePHServer )
+
+3. Open Chrome and go to:   http://localhost:8080
+4. To stop the server: click the terminal and press Ctrl + C.
+
+Accounts and comments are saved in routeph-data.ser (created automatically).
+Delete that file to reset everything.

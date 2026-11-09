@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Route PH</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+
+  <!-- SPLASH -->
+  <section id="splash" class="screen active">
+    <h1 class="logo">Route PH</h1>
+    <p class="tagline">tire track here</p>
+    <p class="loading">Loading...</p>
+  </section>
+
+  <!-- LOGIN / CREATE ACCOUNT -->
+  <section id="auth" class="screen">
+    <div class="content">
+      <div class="hill"></div>
+      <h2 class="welcome">Route PH</h2>
+      <div class="tabs">
+        <button type="button" id="tabLogin" class="tab active">Log in</button>
+        <button type="button" id="tabCreate" class="tab">Create account</button>
+      </div>
+      <form id="authForm" autocomplete="off">
+        <label class="field"><span class="inputwrap"><small>USERNAME</small>
+          <input id="authUser" type="text" maxlength="20" placeholder="Enter username"></span></label>
+        <label class="field"><span class="inputwrap"><small>PASSWORD</small>
+          <input id="authPass" type="password" placeholder="Enter password"></span></label>
+        <label class="field" id="confirmField" hidden><span class="inputwrap"><small>CONFIRM PASSWORD</small>
+          <input id="authPass2" type="password" placeholder="Re-enter password"></span></label>
+        <p id="authError" class="error" hidden></p>
+        <button type="submit" class="enter" id="authSubmit">log in</button>
+      </form>
+      <p class="hint" id="authHint">No account yet? Tap "Create account".</p>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section id="home" class="screen">
+    <div class="content">
+      <div class="hill"></div>
+      <div class="userbar"><span>Hi, <b id="userName">user</b></span><button type="button" id="logoutBtn">Log out</button></div>
+      <h2 class="welcome">Welcome to Route PH</h2>
+
+      <form id="searchForm" autocomplete="off">
+        <label class="field">
+          <span class="pin">📍</span>
+          <span class="inputwrap">
+            <small>YOUR LOCATION</small>
+            <input id="fromInput" type="text" placeholder="PUP Sta. Mesa, Manila">
+          </span>
+        </label>
+        <label class="field">
+          <span class="pin dash">—</span>
+          <span class="inputwrap">
+            <small>DROP LOCATION</small>
+            <input id="toInput" type="text" list="dests" placeholder="Caloocan or Bulacan">
+            <datalist id="dests"><option value="Caloocan"><option value="Bulacan"></datalist>
+          </span>
+        </label>
+        <p id="formError" class="error" hidden></p>
+        <button type="submit" class="enter">enter</button>
+      </form>
+
+      </section>
+
+  <!-- ROUTES -->
+  <section id="routes" class="screen">
+    <div class="content scroll">
+      <div class="destbar"><button class="back" id="backHome" aria-label="Back">‹</button><span class="pin">📍</span><div><b id="stationTitle">PUREZA LRT-2 STATION</b><small id="destTitle">Caloocan</small></div></div>
+      <div class="map"><iframe id="mapFrame" title="Google Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <a id="openMaps" class="maplink" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      <h3 class="section">AVAILABLE ROUTES</h3>
+      <div id="routeList"></div>
+    </div>
+  </section>
+
+  <!-- NOTIFICATIONS -->
+  <section id="notifs" class="screen">
+    <div class="content scroll">
+      <h2 class="welcome small">Notifications</h2>
+      <div id="notifList"></div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav id="nav" hidden>
+    <button id="navHome" class="navbtn green">HOME</button>
+    <button id="navNotif" class="navbtn outline">NOTIFICATION <span id="badge" hidden></span></button>
+  </nav>
+
+  <!-- STEPS SHEET -->
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheetcard">
+      <button id="closeSheet" class="close" aria-label="Close">✕</button>
+      <div class="sheethead"><span class="ico" id="sheetIcon">🚆</span><h3 id="sheetTitle"></h3></div>
+      <div class="duration"><small>DURATION</small><b id="sheetDur"></b></div>
+            <div id="trackBox" class="trackbox" hidden>
+        <div class="mapTabs">
+          <button type="button" class="mtab active" data-view="step">Step route</button>
+          <button type="button" class="mtab" data-view="whole">Whole route</button>
+          <button type="button" class="mtab" data-view="me">📍 My location</button>
+        </div>
+        <iframe id="trackFrame" title="Live location" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p id="trackMsg" class="msg"></p>
+      </div>
+      <p class="steplabel nav">Step-by-Step Navigation</p>
+      <ol id="stepList" class="steps"></ol>
+
+      <div class="commentbox">
+        <p class="steplabel">Comment</p>
+        <div class="row">
+          <input id="commentInput" type="text" placeholder="Write a comment…">
+          <button id="postComment" class="mini">Post</button>
+        </div>
+        <p id="commentMsg" class="msg"></p>
+        <div id="commentList" class="clist"></div>
+      </div>
+
+      <div class="actions">
+        <button id="startNav" class="startnav">➤ START NAVIGATION</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
